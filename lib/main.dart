@@ -1,3 +1,4 @@
+import 'package:citytech/config/themes.dart';
 import 'package:citytech/features/presentation/home_screen.dart';
 import 'package:citytech/features/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,7 @@ class MainApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/home': (context) => const HomeScreen(),
       },
+      theme: AppThemes.lightTheme,
       home: HomeScreen(),
     );
   }
