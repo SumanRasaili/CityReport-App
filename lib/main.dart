@@ -23,7 +23,6 @@ class MainApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
       },
       theme: AppThemes.lightTheme,
-      home: HomeScreen(),
     );
   }
 }
