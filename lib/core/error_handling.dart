@@ -1,3 +1,4 @@
+import 'package:citytech/core/api_response.dart';
 import 'package:dio/dio.dart';
 
 class ErrorHandler {
@@ -12,28 +13,20 @@ class ErrorHandler {
       case DioExceptionType.cancel:
         return 'Request Cancelled';
       case DioExceptionType.badResponse:
-        return _handleBadResponse(error.response?.statusCode);
+        return _handleBadResponse(error.response?.data);
       case DioExceptionType.unknown:
         return 'Unexpected Error Occurred';
       default:
         return 'Something Went Wrong';
     }
   }
-}
 
-String _handleBadResponse(int? statusCode) {
-  switch (statusCode) {
-    case 400:
-      return 'Bad Request';
-    case 401:
-      return 'Unauthorized';
-    case 403:
-      return 'Forbidden';
-    case 404:
-      return 'Not Found';
-    case 500:
-      return 'Internal Server Error';
-    default:
-      return 'Unexpected Error (Code: $statusCode)';
+  String _handleBadResponse(DioException error) {
+    try {
+      final apiResponse = ApiResponse.fromJson(error.response?.data);
+      return apiResponse.message ?? 'Failed to load Data';
+    } catch (e) {
+      return 'Failed to parse Data  ${error.response?.statusCode})';
+    }
   }
 }
