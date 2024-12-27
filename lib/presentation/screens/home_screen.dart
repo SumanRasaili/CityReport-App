@@ -1,4 +1,4 @@
-import 'package:citytech/data/models/transaction_report_model.dart';
+import 'package:citytech/data/models/transaction_report/transaction_report_model.dart';
 import 'package:citytech/presentation/blocs/transaction_report/transaction_report_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +22,9 @@ class _HomeScreenState extends State<HomeScreen> {
           builder: (context, state) {
         if (state is TransactionReortLoading) {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              color: Colors.green,
+            ),
           );
         } else if (state is TransactionReportLoaded) {
           return Card(

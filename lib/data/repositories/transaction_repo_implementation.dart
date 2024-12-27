@@ -1,5 +1,5 @@
 import 'package:citytech/data/data_providers/api_service.dart';
-import 'package:citytech/data/models/transaction_report_model.dart';
+import 'package:citytech/data/models/transaction_report/transaction_report_model.dart';
 import 'package:citytech/domain/repositories/transaction_repositories_interface.dart';
 
 class TransactionRepoImplementation
