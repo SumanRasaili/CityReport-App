@@ -6,10 +6,12 @@ import 'package:citytech/features/presentation/screens/home_screen.dart';
 import 'package:citytech/features/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setUpLocator();
+  await dotenv.load(fileName: ".env");
   runApp(const MainApp());
 }
 
@@ -27,9 +29,8 @@ class MainApp extends StatelessWidget {
             ),
         ),
         BlocProvider(
-          create: (context) => OutletReportBloc(
-        
-          )..add(
+          create: (context) => OutletReportBloc()
+            ..add(
               OutletReportFetchEvent(),
             ),
         ),

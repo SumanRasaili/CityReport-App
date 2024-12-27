@@ -1,5 +1,5 @@
-import 'package:citytech/constants/url_constants.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DioManager {
   DioManager() {
@@ -10,7 +10,7 @@ class DioManager {
 
   void setUpDio() {
     _dio = Dio(BaseOptions(
-      baseUrl: UrlConstants.BASE_URL,
+      baseUrl: dotenv.get('BASE_URL'),
       connectTimeout: Duration(seconds: 20),
       receiveTimeout: Duration(seconds: 20),
       headers: {
