@@ -1,5 +1,6 @@
 import 'package:citytech/config/themes.dart';
 import 'package:citytech/core/di_container/di_locator.dart';
+import 'package:citytech/presentation/blocs/outlet_report/outlet_report_bloc.dart';
 import 'package:citytech/presentation/blocs/transaction_report/transaction_report_bloc.dart';
 import 'package:citytech/presentation/screens/home_screen.dart';
 import 'package:citytech/presentation/screens/splash_screen.dart';
@@ -17,12 +18,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TransactionReportBloc(
-        locator(),
-      )..add(
-          FetchTransactionReport(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TransactionReportBloc(
+            locator(),
+          )..add(
+              FetchTransactionReport(),
+            ),
         ),
+        BlocProvider(
+          create: (context) => OutletReportBloc(
+            locator(),
+          )..add(
+              OutletReportFetchEvent(),
+            ),
+        ),
+      ],
       child: MaterialApp(
         title: 'City Report',
         debugShowCheckedModeBanner: false,
