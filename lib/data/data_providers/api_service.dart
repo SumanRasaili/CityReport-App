@@ -8,4 +8,9 @@ class ApiService {
     final response = await _dio.post(UrlConstants.PAP_REPORT);
     return response.data;
   }
+
+  Future<Map<String, dynamic>> fetchOutletReport() async {
+    final response = await _dio.post(UrlConstants.OUTLET_REPORT);
+    return response.data;
+  }
 }

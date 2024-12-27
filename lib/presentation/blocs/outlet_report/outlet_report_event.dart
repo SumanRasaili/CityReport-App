@@ -6,3 +6,5 @@ sealed class OutletReportEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class OutletReportFetchEvent extends OutletReportEvent {}
