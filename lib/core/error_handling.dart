@@ -15,7 +15,7 @@ class ErrorHandler {
       case DioExceptionType.badResponse:
         return _handleBadResponse(error);
       case DioExceptionType.unknown:
-        return 'Unexpected Error Occurred';
+        return 'Unknown Error Occurred';
       default:
         return 'Something Went Wrong';
     }
