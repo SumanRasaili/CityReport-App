@@ -4,6 +4,7 @@ import 'package:citytech/features/data/repositories/outlet_repo_impl.dart';
 import 'package:citytech/features/data/repositories/transaction_repo_impl.dart';
 import 'package:citytech/features/domain/repositories/outlet_report_interfaces.dart';
 import 'package:citytech/features/domain/repositories/transaction_repositories_interface.dart';
+import 'package:citytech/features/domain/usecases/get_transaction_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -23,9 +24,13 @@ Future<void> setUpLocator() async {
 
   //repo
   locator.registerLazySingleton<TransactionRepositoriesInterface>(
-    () => TransactionRepoImplementation(locator()),
+    () => TransactionRepoImplementation(locator<ApiService>()),
   );
   locator.registerLazySingleton<OutletReportInterfaces>(
-    () => OutletRepoImpl(locator()),
+    () => OutletRepoImpl(locator<ApiService>()),
+  );
+  //usecases
+  locator.registerLazySingleton<GetTransactionUsecase>(
+    () => GetTransactionUsecase(locator<TransactionRepositoriesInterface>()),
   );
 }

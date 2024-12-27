@@ -12,7 +12,7 @@ final class TransactionReportInitial extends TransactionReportState {}
 final class TransactionReportLoading extends TransactionReportState {}
 
 final class TransactionReportLoaded extends TransactionReportState {
-  final List<TransactionItem> transactionList;
+  final List<TransactionReportEntityItem> transactionList;
   const TransactionReportLoaded(this.transactionList);
 
   @override

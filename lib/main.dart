@@ -21,9 +21,8 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => TransactionReportBloc(
-            locator(),
-          )..add(
+          create: (context) => TransactionReportBloc()
+            ..add(
               FetchTransactionReport(),
             ),
         ),

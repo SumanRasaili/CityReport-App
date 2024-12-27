@@ -6,11 +6,7 @@ class OutletRepoImpl implements OutletReportInterfaces {
   final ApiService _apiService;
   OutletRepoImpl(this._apiService);
   @override
-  Future<List<OutletReportItem>> getOutletReport() async {
-    final outletResponse = await _apiService.fetchOutletReport();
-    final outletList = (outletResponse["data"]["items"] as List)
-        .map((e) => OutletReportItem.fromJson(e))
-        .toList();
-    return outletList;
+  Future<List<OutletReportItem>> getOutletReport() {
+    return _apiService.fetchOutletReport();
   }
 }

@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
 import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/domain/entity/transaction_entity.dart';
 import 'package:citytech/features/presentation/blocs/outlet_report/outlet_report_bloc.dart';
 import 'package:citytech/features/presentation/blocs/transaction_report/transaction_report_bloc.dart';
 import 'package:flutter/material.dart';
@@ -62,12 +63,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           position: LegendPosition.left,
                         ),
                         series: <CircularSeries>[
-                          PieSeries<TransactionItem, String>(
+                          PieSeries<TransactionReportEntityItem, String>(
                             explode: true,
                             dataSource: state.transactionList,
-                            xValueMapper: (TransactionItem data, _) =>
+                            xValueMapper: (TransactionReportEntityItem data, _) =>
                                 data.type,
-                            yValueMapper: (TransactionItem data, _) =>
+                            yValueMapper: (TransactionReportEntityItem data, _) =>
                                 data.value,
                           )
                         ],

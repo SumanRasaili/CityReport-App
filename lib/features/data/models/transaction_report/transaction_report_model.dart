@@ -30,7 +30,7 @@ class TransactionData with _$TransactionData {
 class TransactionItem with _$TransactionItem {
   const factory TransactionItem({
     @JsonKey(name: "type") String? type,
-    @JsonKey(name: "value") int? value,
+    @JsonKey(name: "value") @Default(0) num value,
   }) = _TransactionItem;
 
   factory TransactionItem.fromJson(Map<String, dynamic> json) =>

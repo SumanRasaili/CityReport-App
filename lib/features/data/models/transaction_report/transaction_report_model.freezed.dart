@@ -439,7 +439,7 @@ mixin _$TransactionItem {
   @JsonKey(name: "type")
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "value")
-  int? get value => throw _privateConstructorUsedError;
+  num get value => throw _privateConstructorUsedError;
 
   /// Serializes this TransactionItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -458,8 +458,7 @@ abstract class $TransactionItemCopyWith<$Res> {
       _$TransactionItemCopyWithImpl<$Res, TransactionItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "value") int? value});
+      {@JsonKey(name: "type") String? type, @JsonKey(name: "value") num value});
 }
 
 /// @nodoc
@@ -478,17 +477,17 @@ class _$TransactionItemCopyWithImpl<$Res, $Val extends TransactionItem>
   @override
   $Res call({
     Object? type = freezed,
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num,
     ) as $Val);
   }
 }
@@ -502,8 +501,7 @@ abstract class _$$TransactionItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "value") int? value});
+      {@JsonKey(name: "type") String? type, @JsonKey(name: "value") num value});
 }
 
 /// @nodoc
@@ -520,17 +518,17 @@ class __$$TransactionItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = freezed,
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$TransactionItemImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num,
     ));
   }
 }
@@ -539,7 +537,8 @@ class __$$TransactionItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$TransactionItemImpl implements _TransactionItem {
   const _$TransactionItemImpl(
-      {@JsonKey(name: "type") this.type, @JsonKey(name: "value") this.value});
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "value") this.value = 0});
 
   factory _$TransactionItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$TransactionItemImplFromJson(json);
@@ -549,7 +548,7 @@ class _$TransactionItemImpl implements _TransactionItem {
   final String? type;
   @override
   @JsonKey(name: "value")
-  final int? value;
+  final num value;
 
   @override
   String toString() {
@@ -589,7 +588,7 @@ class _$TransactionItemImpl implements _TransactionItem {
 abstract class _TransactionItem implements TransactionItem {
   const factory _TransactionItem(
       {@JsonKey(name: "type") final String? type,
-      @JsonKey(name: "value") final int? value}) = _$TransactionItemImpl;
+      @JsonKey(name: "value") final num value}) = _$TransactionItemImpl;
 
   factory _TransactionItem.fromJson(Map<String, dynamic> json) =
       _$TransactionItemImpl.fromJson;
@@ -599,7 +598,7 @@ abstract class _TransactionItem implements TransactionItem {
   String? get type;
   @override
   @JsonKey(name: "value")
-  int? get value;
+  num get value;
 
   /// Create a copy of TransactionItem
   /// with the given fields replaced by the non-null parameter values.

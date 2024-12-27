@@ -1,5 +1,6 @@
 import 'package:citytech/features/data/data_providers/api_service.dart';
-import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/data/mappers/transaction_mappers.dart';
+import 'package:citytech/features/domain/entity/transaction_entity.dart';
 import 'package:citytech/features/domain/repositories/transaction_repositories_interface.dart';
 
 class TransactionRepoImplementation
@@ -7,11 +8,8 @@ class TransactionRepoImplementation
   final ApiService _apiService;
   TransactionRepoImplementation(this._apiService);
   @override
-  Future<List<TransactionItem>> getTransactions() async {
-    final transResponse = await _apiService.fetchPapTransactionReport();
-    final transactionList = (transResponse["data"]["items"] as List)
-        .map((e) => TransactionItem.fromJson(e))
-        .toList();
-    return transactionList;
+  Future<List<TransactionReportEntityItem>> getTransactions() async {
+    final data = await _apiService.fetchPapTransactionReport();
+    return TransactionMappers.toModelList(data);
   }
 }
