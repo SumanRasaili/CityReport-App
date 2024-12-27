@@ -1,3 +1,4 @@
+import 'package:citytech/core/dio/dio_interceptors.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
@@ -18,13 +19,16 @@ class DioManager {
         'Accept': 'application/json',
       },
     ));
-    _dio.interceptors.add(
+    _dio.interceptors.addAll([
+      CustomInterceptors(
+        _dio,
+      ),
       LogInterceptor(
         responseBody: true,
         request: true,
         error: true,
         requestBody: true,
       ),
-    );
+    ]);
   }
 }
