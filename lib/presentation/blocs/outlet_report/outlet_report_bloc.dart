@@ -18,7 +18,11 @@ class OutletReportBloc extends Bloc<OutletReportEvent, OutletReportState> {
     try {
       emit(OutletReportLoading());
       final outletList = await outletReportInterfaces.getOutletReport();
-      emit(OutletReportLoaded(outletList));
+      if (outletList.isEmpty) {
+        emit(OutletReportEmpty("No Outlet Found"));
+      } else {
+        emit(OutletReportLoaded(outletList));
+      }
     } on DioException catch (e) {
       emit(OutletReportError(await ErrorHandler().handleError(e)));
     } catch (e) {

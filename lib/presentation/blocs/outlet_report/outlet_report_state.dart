@@ -26,3 +26,11 @@ final class OutletReportError extends OutletReportState {
   @override
   List<Object> get props => [message];
 }
+
+final class OutletReportEmpty extends OutletReportState {
+  final String message;
+  const OutletReportEmpty(this.message);
+
+  @override
+  List<Object> get props => [message];
+}

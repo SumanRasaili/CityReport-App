@@ -115,12 +115,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ));
+                } else if (state is OutletReportEmpty) {
+                  return Center(
+                    child: Text(state.message),
+                  );
                 } else if (state is OutletReportError) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 200),
-                    child: Center(
-                      child: Text(state.message),
-                    ),
+                  return Center(
+                    child: Text(state.message),
                   );
                 } else {
                   return const Center(
