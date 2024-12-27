@@ -1,12 +1,8 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+
 class CustomInterceptors extends Interceptor {
-   final Dio? dioInstance;
-
-
-
-  CustomInterceptors( this.dioInstance);
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     log('REQUEST[${options.method}] => PATH: ${options.path}');

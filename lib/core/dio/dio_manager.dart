@@ -20,9 +20,7 @@ class DioManager {
       },
     ));
     _dio.interceptors.addAll([
-      CustomInterceptors(
-        _dio,
-      ),
+      CustomInterceptors(),
       LogInterceptor(
         responseBody: true,
         request: true,
