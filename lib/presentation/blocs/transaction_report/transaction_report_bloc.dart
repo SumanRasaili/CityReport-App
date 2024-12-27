@@ -24,11 +24,10 @@ class TransactionReportBloc
       final transactionList =
           await transactionRepositoriesInterface.getTransactions();
       emit(TransactionReportLoaded(transactionList));
-    } on DioException catch (e) {
-      log("Issue Occured on dio $e");
+    } on DioException catch (e, stackTrace) {
+      log("Issue Occured on dio $e \n $stackTrace");
       emit(TransactionReportError(await ErrorHandler().handleError(e)));
     } catch (e) {
-      log("Issue Occured $e");
       emit(TransactionReportError(e.toString()));
     }
   }

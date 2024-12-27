@@ -13,7 +13,7 @@ class ErrorHandler {
       case DioExceptionType.cancel:
         return 'Request Cancelled';
       case DioExceptionType.badResponse:
-        return _handleBadResponse(error.response?.data);
+        return _handleBadResponse(error);
       case DioExceptionType.unknown:
         return 'Unexpected Error Occurred';
       default:
@@ -22,11 +22,24 @@ class ErrorHandler {
   }
 
   String _handleBadResponse(DioException error) {
-    try {
-      final apiResponse = ApiResponse.fromJson(error.response?.data);
-      return apiResponse.message ?? 'Failed to load Data';
-    } catch (e) {
-      return 'Failed to parse Data  ${error.response?.statusCode})';
+    switch (error.response?.statusCode) {
+      case 400:
+        return 'Bad Request';
+      case 401:
+        return 'Unauthorized';
+      case 403:
+        return 'Forbidden';
+      case 404:
+        return 'Not Found';
+      case 500:
+        return 'Internal Server Error';
+      default:
+        try {
+          final apiResponse = ApiResponse.fromJson(error.response?.data);
+          return apiResponse.message ?? 'Failed to load Data';
+        } catch (e) {
+          return 'Something went wrong  (${error.response?.statusCode})';
+        }
     }
   }
 }

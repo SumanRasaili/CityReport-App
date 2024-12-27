@@ -11,6 +11,7 @@ Future<void> setUpLocator() async {
     () => DioManager(),
   );
   locator<DioManager>().setUpDio();
+  //apiservice
   locator.registerLazySingleton(
     () => ApiService(locator<DioManager>().dio),
   );
