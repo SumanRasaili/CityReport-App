@@ -4,6 +4,7 @@ import 'package:citytech/presentation/blocs/outlet_report/outlet_report_bloc.dar
 import 'package:citytech/presentation/blocs/transaction_report/transaction_report_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,11 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
               BlocBuilder<TransactionReportBloc, TransactionReportState>(
                   builder: (context, state) {
                 if (state is TransactionReortLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.green,
-                    ),
-                  );
+                  return _loadingShimmers(context);
                 } else if (state is TransactionReportLoaded) {
                   return Card(
                       child: SizedBox(
@@ -77,11 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
               BlocBuilder<OutletReportBloc, OutletReportState>(
                   builder: (context, state) {
                 if (state is OutletReportLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.green,
-                    ),
-                  );
+                  return _loadingShimmers(context);
                 } else if (state is OutletReportLoaded) {
                   return Card(
                       child: SizedBox(
@@ -119,8 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ));
                 } else if (state is OutletReportError) {
-                  return Center(
-                    child: Text(state.message),
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 200),
+                    child: Center(
+                      child: Text(state.message),
+                    ),
                   );
                 } else {
                   return const Center(
@@ -131,5 +127,18 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ));
+  }
+
+  _loadingShimmers(context) {
+    return Shimmer.fromColors(
+      baseColor: Colors.grey[100]!,
+      highlightColor: Colors.grey[50]!,
+      child: Card(
+        child: SizedBox(
+          height: 250,
+          width: MediaQuery.of(context).size.width,
+        ),
+      ),
+    );
   }
 }

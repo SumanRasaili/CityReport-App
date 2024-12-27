@@ -38,7 +38,7 @@ class ErrorHandler {
           final apiResponse = ApiResponse.fromJson(error.response?.data);
           return apiResponse.message ?? 'Failed to load Data';
         } catch (e) {
-          return 'Something went wrong  (${error.response?.statusCode})';
+          return 'Something went wrong (${error.response?.statusCode})';
         }
     }
   }

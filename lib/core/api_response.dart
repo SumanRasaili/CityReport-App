@@ -7,8 +7,8 @@ class ApiResponse {
 
   factory ApiResponse.fromJson(Map<String, dynamic> json) {
     return ApiResponse(
-      code: json['code'] ,
-      message: json['message'] ,
+      code: json['code'],
+      message: json['message'],
       data: json['data'],
     );
   }
