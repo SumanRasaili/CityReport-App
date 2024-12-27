@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:citytech/core/error_handling.dart';
 import 'package:citytech/data/models/transaction_report_model.dart';
@@ -23,8 +25,10 @@ class TransactionReportBloc
           await transactionRepositoriesInterface.getTransactions();
       emit(TransactionReportLoaded(transactionList));
     } on DioException catch (e) {
+      log("Issue Occured on dio $e");
       emit(TransactionReportError(await ErrorHandler().handleError(e)));
     } catch (e) {
+      log("Issue Occured $e");
       emit(TransactionReportError(e.toString()));
     }
   }
