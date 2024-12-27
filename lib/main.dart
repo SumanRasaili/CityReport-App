@@ -20,7 +20,9 @@ class MainApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => TransactionReportBloc(
         locator(),
-      ),
+      )..add(
+          FetchTransactionReport(),
+        ),
       child: MaterialApp(
         title: 'City Report',
         debugShowCheckedModeBanner: false,
