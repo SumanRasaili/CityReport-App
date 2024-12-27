@@ -1,6 +1,6 @@
 part of 'transaction_report_bloc.dart';
 
-sealed class TransactionReportState extends Equatable {
+abstract class TransactionReportState extends Equatable {
   const TransactionReportState();
 
   @override
@@ -26,6 +26,7 @@ class TransactionReportError extends TransactionReportState {
   @override
   List<Object> get props => [message];
 }
+
 class NoTransactionReport extends TransactionReportState {
   final String message;
   const NoTransactionReport(this.message);

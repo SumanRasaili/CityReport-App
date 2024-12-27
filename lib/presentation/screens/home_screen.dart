@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text('Reports'),
         ),
         body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
           child: Column(
             children: [
               BlocBuilder<TransactionReportBloc, TransactionReportState>(

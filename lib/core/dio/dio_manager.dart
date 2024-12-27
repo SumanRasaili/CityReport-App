@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 class DioManager {
   DioManager() {
     setUpDio();
-    }
-   late final  Dio _dio;
+  }
+  late final Dio _dio;
   Dio get dio => _dio;
 
   void setUpDio() {
@@ -27,6 +27,4 @@ class DioManager {
       ),
     );
   }
-
-
 }
