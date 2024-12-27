@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:citytech/core/error_handling.dart';
-import 'package:citytech/data/models/transaction_report/transaction_report_model.dart';
-import 'package:citytech/domain/repositories/transaction_repositories_interface.dart';
+import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/domain/repositories/transaction_repositories_interface.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 

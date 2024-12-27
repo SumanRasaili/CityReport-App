@@ -1,7 +1,7 @@
-import 'package:citytech/data/models/outlet_report/outlet_report_model.dart';
-import 'package:citytech/data/models/transaction_report/transaction_report_model.dart';
-import 'package:citytech/presentation/blocs/outlet_report/outlet_report_bloc.dart';
-import 'package:citytech/presentation/blocs/transaction_report/transaction_report_bloc.dart';
+import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
+import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/presentation/blocs/outlet_report/outlet_report_bloc.dart';
+import 'package:citytech/features/presentation/blocs/transaction_report/transaction_report_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shimmer/shimmer.dart';
