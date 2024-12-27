@@ -1,7 +1,7 @@
 import 'package:citytech/config/themes.dart';
 import 'package:citytech/core/di_container/di_locator.dart';
-import 'package:citytech/features/presentation/home_screen.dart';
-import 'package:citytech/features/presentation/splash_screen.dart';
+import 'package:citytech/presentation/screens/home_screen.dart';
+import 'package:citytech/presentation/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
