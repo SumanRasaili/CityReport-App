@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('Welcome to City Report'),
+        child: Text('City Report'),
       ),
     );
   }
