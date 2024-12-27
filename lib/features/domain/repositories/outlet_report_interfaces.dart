@@ -1,5 +1,5 @@
-import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
+import 'package:citytech/features/domain/entity/outlet_entity.dart';
 
 abstract class OutletReportInterfaces {
-  Future<List<OutletReportItem>> getOutletReport();
+  Future<List<OutletEntity>> getOutletReport();
 }

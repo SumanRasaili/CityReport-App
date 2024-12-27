@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:citytech/core/di_container/di_locator.dart';
 import 'package:citytech/core/error_handling.dart';
-import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
-import 'package:citytech/features/domain/repositories/outlet_report_interfaces.dart';
+import 'package:citytech/features/domain/entity/outlet_entity.dart';
+import 'package:citytech/features/domain/usecases/get_outlet_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,15 +10,14 @@ part 'outlet_report_event.dart';
 part 'outlet_report_state.dart';
 
 class OutletReportBloc extends Bloc<OutletReportEvent, OutletReportState> {
-  final OutletReportInterfaces outletReportInterfaces;
-  OutletReportBloc(this.outletReportInterfaces) : super(OutletReportInitial()) {
+  OutletReportBloc() : super(OutletReportInitial()) {
     on<OutletReportEvent>(_fetchOutletReport);
   }
   Future<void> _fetchOutletReport(
       OutletReportEvent event, Emitter<OutletReportState> emit) async {
     try {
       emit(OutletReportLoading());
-      final outletList = await outletReportInterfaces.getOutletReport();
+      final outletList = await locator<GetOutletUseCase>().getOutlet();
       if (outletList.isEmpty) {
         emit(OutletReportEmpty("No Outlet Found"));
       } else {

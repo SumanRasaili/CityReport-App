@@ -434,7 +434,7 @@ mixin _$OutletReportItem {
   @JsonKey(name: "type")
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: "value")
-  int? get value => throw _privateConstructorUsedError;
+  num get value => throw _privateConstructorUsedError;
 
   /// Serializes this OutletReportItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -453,8 +453,7 @@ abstract class $OutletReportItemCopyWith<$Res> {
       _$OutletReportItemCopyWithImpl<$Res, OutletReportItem>;
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "value") int? value});
+      {@JsonKey(name: "type") String? type, @JsonKey(name: "value") num value});
 }
 
 /// @nodoc
@@ -473,17 +472,17 @@ class _$OutletReportItemCopyWithImpl<$Res, $Val extends OutletReportItem>
   @override
   $Res call({
     Object? type = freezed,
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_value.copyWith(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num,
     ) as $Val);
   }
 }
@@ -497,8 +496,7 @@ abstract class _$$OutletReportItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: "type") String? type,
-      @JsonKey(name: "value") int? value});
+      {@JsonKey(name: "type") String? type, @JsonKey(name: "value") num value});
 }
 
 /// @nodoc
@@ -515,17 +513,17 @@ class __$$OutletReportItemImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = freezed,
-    Object? value = freezed,
+    Object? value = null,
   }) {
     return _then(_$OutletReportItemImpl(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String?,
-      value: freezed == value
+      value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as num,
     ));
   }
 }
@@ -534,7 +532,8 @@ class __$$OutletReportItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$OutletReportItemImpl implements _OutletReportItem {
   const _$OutletReportItemImpl(
-      {@JsonKey(name: "type") this.type, @JsonKey(name: "value") this.value});
+      {@JsonKey(name: "type") this.type,
+      @JsonKey(name: "value") this.value = 0});
 
   factory _$OutletReportItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$OutletReportItemImplFromJson(json);
@@ -544,7 +543,7 @@ class _$OutletReportItemImpl implements _OutletReportItem {
   final String? type;
   @override
   @JsonKey(name: "value")
-  final int? value;
+  final num value;
 
   @override
   String toString() {
@@ -584,7 +583,7 @@ class _$OutletReportItemImpl implements _OutletReportItem {
 abstract class _OutletReportItem implements OutletReportItem {
   const factory _OutletReportItem(
       {@JsonKey(name: "type") final String? type,
-      @JsonKey(name: "value") final int? value}) = _$OutletReportItemImpl;
+      @JsonKey(name: "value") final num value}) = _$OutletReportItemImpl;
 
   factory _OutletReportItem.fromJson(Map<String, dynamic> json) =
       _$OutletReportItemImpl.fromJson;
@@ -594,7 +593,7 @@ abstract class _OutletReportItem implements OutletReportItem {
   String? get type;
   @override
   @JsonKey(name: "value")
-  int? get value;
+  num get value;
 
   /// Create a copy of OutletReportItem
   /// with the given fields replaced by the non-null parameter values.

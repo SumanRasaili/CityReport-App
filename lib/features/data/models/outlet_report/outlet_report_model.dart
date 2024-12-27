@@ -30,7 +30,7 @@ class OutletReportData with _$OutletReportData {
 class OutletReportItem with _$OutletReportItem {
   const factory OutletReportItem({
     @JsonKey(name: "type") String? type,
-    @JsonKey(name: "value") int? value,
+    @JsonKey(name: "value") @Default(0) num value,
   }) = _OutletReportItem;
 
   factory OutletReportItem.fromJson(Map<String, dynamic> json) =>

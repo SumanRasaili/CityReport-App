@@ -28,7 +28,7 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => OutletReportBloc(
-            locator(),
+        
           )..add(
               OutletReportFetchEvent(),
             ),

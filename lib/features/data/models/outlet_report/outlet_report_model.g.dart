@@ -45,7 +45,7 @@ _$OutletReportItemImpl _$$OutletReportItemImplFromJson(
         Map<String, dynamic> json) =>
     _$OutletReportItemImpl(
       type: json['type'] as String?,
-      value: (json['value'] as num?)?.toInt(),
+      value: json['value'] as num? ?? 0,
     );
 
 Map<String, dynamic> _$$OutletReportItemImplToJson(

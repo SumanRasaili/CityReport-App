@@ -12,7 +12,7 @@ final class OutletReportInitial extends OutletReportState {}
 final class OutletReportLoading extends OutletReportState {}
 
 final class OutletReportLoaded extends OutletReportState {
-  final List<OutletReportItem> outletList;
+  final List<OutletEntity> outletList;
   const OutletReportLoaded(this.outletList);
 
   @override

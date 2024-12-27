@@ -1,7 +1,6 @@
 import 'dart:developer';
 
-import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
-import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/domain/entity/outlet_entity.dart';
 import 'package:citytech/features/domain/entity/transaction_entity.dart';
 import 'package:citytech/features/presentation/blocs/outlet_report/outlet_report_bloc.dart';
 import 'package:citytech/features/presentation/blocs/transaction_report/transaction_report_bloc.dart';
@@ -66,10 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           PieSeries<TransactionReportEntityItem, String>(
                             explode: true,
                             dataSource: state.transactionList,
-                            xValueMapper: (TransactionReportEntityItem data, _) =>
-                                data.type,
-                            yValueMapper: (TransactionReportEntityItem data, _) =>
-                                data.value,
+                            xValueMapper:
+                                (TransactionReportEntityItem data, _) =>
+                                    data.type,
+                            yValueMapper:
+                                (TransactionReportEntityItem data, _) =>
+                                    data.value,
                           )
                         ],
                       ),
@@ -108,13 +109,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         series: <CircularSeries>[
-                          DoughnutSeries<OutletReportItem, String>(
+                          DoughnutSeries<OutletEntity, String>(
                             explode: true,
                             dataSource: state.outletList,
-                            xValueMapper: (OutletReportItem data, _) =>
-                                data.type,
-                            yValueMapper: (OutletReportItem data, _) =>
-                                data.value,
+                            xValueMapper: (OutletEntity data, _) => data.type,
+                            yValueMapper: (OutletEntity data, _) => data.value,
                             dataLabelSettings: DataLabelSettings(
                               isVisible: true,
                               labelPosition: ChartDataLabelPosition.outside,
