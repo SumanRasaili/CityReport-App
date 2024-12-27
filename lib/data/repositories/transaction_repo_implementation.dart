@@ -9,7 +9,7 @@ class TransactionRepoImplementation
   @override
   Future<List<TransactionItem>> getTransactions() async {
     final transResponse = await _apiService.fetchPapTransactionReport();
-    final transactionList = (transResponse["items"] as List)
+    final transactionList = (transResponse["data"]["items"] as List)
         .map((e) => TransactionItem.fromJson(e))
         .toList();
     return transactionList;
