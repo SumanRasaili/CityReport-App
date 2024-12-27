@@ -9,7 +9,7 @@ sealed class TransactionReportState extends Equatable {
 
 final class TransactionReportInitial extends TransactionReportState {}
 
-final class TransactionReortLoading extends TransactionReportState {}
+final class TransactionReportLoading extends TransactionReportState {}
 
 final class TransactionReportLoaded extends TransactionReportState {
   final List<TransactionItem> transactionList;
@@ -22,6 +22,13 @@ final class TransactionReportLoaded extends TransactionReportState {
 class TransactionReportError extends TransactionReportState {
   final String message;
   const TransactionReportError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}
+class NoTransactionReport extends TransactionReportState {
+  final String message;
+  const NoTransactionReport(this.message);
 
   @override
   List<Object> get props => [message];

@@ -20,10 +20,14 @@ class TransactionReportBloc
   Future<void> _fetchTransactionReport(TransactionReportEvent event,
       Emitter<TransactionReportState> emit) async {
     try {
-      emit(TransactionReortLoading());
+      emit(TransactionReportLoading());
       final transactionList =
           await transactionRepositoriesInterface.getTransactions();
-      emit(TransactionReportLoaded(transactionList));
+      if (transactionList.isEmpty) {
+        emit(NoTransactionReport("No Transaction Found"));
+      } else {
+        emit(TransactionReportLoaded(transactionList));
+      }
     } on DioException catch (e, stackTrace) {
       log("Issue Occured on dio $e \n $stackTrace");
       emit(TransactionReportError(await ErrorHandler().handleError(e)));

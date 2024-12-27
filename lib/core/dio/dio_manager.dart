@@ -2,7 +2,11 @@ import 'package:citytech/constants/url_constants.dart';
 import 'package:dio/dio.dart';
 
 class DioManager {
+  DioManager() {
+    setUpDio();
+    }
    late final  Dio _dio;
+  Dio get dio => _dio;
 
   void setUpDio() {
     _dio = Dio(BaseOptions(
@@ -24,5 +28,5 @@ class DioManager {
     );
   }
 
-  Dio get dio => _dio;
+
 }

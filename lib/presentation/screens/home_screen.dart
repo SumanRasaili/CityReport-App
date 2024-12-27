@@ -17,9 +17,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text('City Report'),
+          title: const Text('Reports'),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -27,13 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               BlocBuilder<TransactionReportBloc, TransactionReportState>(
                   builder: (context, state) {
-                if (state is TransactionReortLoading) {
+                if (state is TransactionReportLoading) {
                   return _loadingShimmers(context);
                 } else if (state is TransactionReportLoaded) {
                   return Card(
                       child: SizedBox(
                     height: 250,
-                    width: MediaQuery.of(context).size.width,
+                    width: screenWidth,
                     child: SfCircularChart(
                       title: ChartTitle(
                         borderWidth: 3,
@@ -58,6 +60,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                   ));
+                } else if (state is NoTransactionReport) {
+                  return Center(child: Text(state.message));
                 } else if (state is TransactionReportError) {
                   return Center(
                     child: Text(state.message),
@@ -79,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return Card(
                       child: SizedBox(
                     height: 300,
-                    width: MediaQuery.of(context).size.width,
+                    width: screenWidth,
                     child: SfCircularChart(
                       title: ChartTitle(
                         borderWidth: 3,
