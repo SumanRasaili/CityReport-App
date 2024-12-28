@@ -27,11 +27,10 @@ class TransactionReportBloc
       } else {
         emit(TransactionReportLoaded(transactionList));
       }
-    } on DioException catch (e, stackTrace) {
-      log("Issue Occured on dio $e \n $stackTrace");
+    } on DioException catch (e) {
+
       emit(TransactionReportError(await ErrorHandler().handleError(e)));
-    } catch (e, stackTrace) {
-      log("Issue Occured on below ${e.toString()} \n $stackTrace");
+    } catch (e) {
       emit(TransactionReportError(e.toString()));
     }
   }
