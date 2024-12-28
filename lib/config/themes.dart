@@ -5,10 +5,11 @@ class AppThemes {
     return ThemeData(
       useMaterial3: true,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFFE8F2FC),
+        primary: Color(0xff105894),
       ),
       scaffoldBackgroundColor: Colors.white,
       appBarTheme: const AppBarTheme(
+        surfaceTintColor: Colors.white,
         backgroundColor: Colors.white,
         elevation: 2,
         iconTheme: IconThemeData(

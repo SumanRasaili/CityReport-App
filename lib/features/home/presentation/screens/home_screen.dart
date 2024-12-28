@@ -151,8 +151,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _loadingShimmers(context) {
     return Shimmer.fromColors(
-      baseColor: Colors.grey[100]!,
-      highlightColor: Colors.grey[50]!,
+      baseColor: Colors.grey.shade300,
+      highlightColor: Colors.grey.shade100,
       child: Card(
         child: SizedBox(
           height: 250,

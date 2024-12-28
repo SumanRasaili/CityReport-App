@@ -28,7 +28,6 @@ class TransactionReportBloc
         emit(TransactionReportLoaded(transactionList));
       }
     } on DioException catch (e) {
-
       emit(TransactionReportError(await ErrorHandler().handleError(e)));
     } catch (e) {
       emit(TransactionReportError(e.toString()));
