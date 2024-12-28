@@ -1,5 +1,5 @@
-import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
-import 'package:citytech/features/domain/entity/transaction_entity.dart';
+import 'package:citytech/features/home/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/home/domain/entity/transaction_entity.dart';
 
 class TransactionMappers {
   static List<TransactionReportEntityItem> toModelList(

@@ -1,11 +1,11 @@
 import 'package:citytech/core/dio/dio_manager.dart';
-import 'package:citytech/features/data/data_providers/api_service.dart';
-import 'package:citytech/features/data/repositories/outlet_repo_impl.dart';
-import 'package:citytech/features/data/repositories/transaction_repo_impl.dart';
-import 'package:citytech/features/domain/repositories/outlet_report_interfaces.dart';
-import 'package:citytech/features/domain/repositories/transaction_repositories_interface.dart';
-import 'package:citytech/features/domain/usecases/get_outlet_usecase.dart';
-import 'package:citytech/features/domain/usecases/get_transaction_usecase.dart';
+import 'package:citytech/features/home/data/data_providers/api_service.dart';
+import 'package:citytech/features/home/data/repositories/outlet_repo_impl.dart';
+import 'package:citytech/features/home/data/repositories/transaction_repo_impl.dart';
+import 'package:citytech/features/home/domain/repositories/outlet_report_interfaces.dart';
+import 'package:citytech/features/home/domain/repositories/transaction_repositories_interface.dart';
+import 'package:citytech/features/home/domain/usecases/get_outlet_usecase.dart';
+import 'package:citytech/features/home/domain/usecases/get_transaction_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 

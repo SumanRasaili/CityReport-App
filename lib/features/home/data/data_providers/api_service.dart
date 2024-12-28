@@ -1,6 +1,6 @@
 import 'package:citytech/constants/url_constants.dart';
-import 'package:citytech/features/data/models/outlet_report/outlet_report_model.dart';
-import 'package:citytech/features/data/models/transaction_report/transaction_report_model.dart';
+import 'package:citytech/features/home/data/models/outlet_report/outlet_report_model.dart';
+import 'package:citytech/features/home/data/models/transaction_report/transaction_report_model.dart';
 import 'package:dio/dio.dart';
 
 class ApiService {
