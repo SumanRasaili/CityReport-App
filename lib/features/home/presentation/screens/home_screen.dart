@@ -97,9 +97,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   } else if (state is OutletReportLoaded) {
                     return Card(
                         child: SizedBox(
-                      height: 300,
+                      height: 250,
                       width: screenWidth,
                       child: SfCircularChart(
+                        margin: EdgeInsets.all(10),
                         title: ChartTitle(
                           borderWidth: 3,
                           alignment: ChartAlignment.center,
